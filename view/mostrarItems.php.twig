@@ -1,0 +1,29 @@
+
+{% extends "main.php.twig" %}
+	{% block container %}
+
+    
+    <a class="btn btn-success m-3" href="http://localhost/ejercicioMVCTwig/item/showForm/{{infoItem[0].idPue}}/{{0}}" >Create Item</a>
+    <a class="btn btn-warning m-3" href="http://localhost/ejercicioMVCTwig/puesto/mostrar" >back</a>
+
+   
+    
+     <table>
+   <th> Item </th>
+   <th> Stock </th>
+   <th> Alta </th>
+
+
+    {% for info in infoItem %}
+        <tr> 
+    <td>  {{ info.item }}  </td>
+    <td>  {{ info.stock }}  </td>
+    <td>  {{ info.alta }}  </td>
+    <td> <a class="btn btn-dark m-3" href="http://localhost/ejercicioMVCTwig/item/showForm/{{info.idIte}}" >editar</a> </td>
+    <td> <a class="btn btn-danger" href="http://localhost/ejercicioMVCTwig/item/remove/{{info.idPue}}/{{info.idIte}}" >borrar</a> </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    {% endblock %}
+	

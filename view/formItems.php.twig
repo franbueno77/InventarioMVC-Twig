@@ -1,0 +1,47 @@
+
+{% extends "main.php.twig" %}
+	{% block container %}
+
+{% if  user.subscribed %} {% endif %}
+  
+
+  <form action ="{% if infoItem[0].item %}
+   
+    http://localhost/ejercicioMVCTwig/item/update/{{infoItem[0].idPue}}/{{infoItem[0].idIte}}
+    {% else %}
+    http://localhost/ejercicioMVCTwig/item/create/{{infoIdItem[0].idPue}}
+   {% endif %}" method="POST" >
+  <div class="mb-3">
+    <label for="item" class="form-label">Item</label>
+    <input type="text" class="form-control" id="item" name="item" value="{% if infoItem[0].item %} {{infoItem[0].item}} {% endif %}" aria-describedby="item">
+    
+  </div>
+  <div class="mb-3">
+    <label for="stock" class="form-label">Stock</label>
+    <input type="text" class="form-control" id="stock" name="stock" value="{% if infoItem[0].stock  > 0 %} {{infoItem[0].stock}} {% endif %}" aria-describedby="stock">
+    
+  </div>
+  {% if   infoItem[0].alta %}
+  <div class="mb-3">
+    <label for="alta" class="form-label">Alta</label>
+    <input type="text" class="form-control" id="alta" name="alta" value=" {{infoItem[0].alta|date("d-m-Y")}}  " disabled aria-describedby="alta">
+    
+  </div>
+  {% endif %}
+  <button type="submit" class="btn btn-dark">
+  {% if infoItem[0].item %} 
+  Update
+  {% else %}
+  Create
+  {% endif%}
+  </button>
+  {% if infoItem[0].item %} 
+  <a class = "btn btn-danger m-3" href="../selectId/{{infoItem[0].idPue}}">back</a>
+  {% else %}
+  <a class = "btn btn-danger m-3" href="../../selectId/{{infoIdItem[0].idPue}}">back</a>
+  {% endif%}
+  
+</form>
+
+
+    {% endblock %}

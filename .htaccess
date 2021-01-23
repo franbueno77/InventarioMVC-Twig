@@ -1,0 +1,11 @@
+RewriteEngine On
+
+#http://localhost/ejercicioMVCTwig/index.php
+
+RewriteRule ^puesto/mostrar$ index.php
+RewriteRule ^item/selectId/([0-9])*([0-9])+$ index.php?controller=Item&action=selectID&idPue=$1$2
+RewriteRule ^item/create/([0-9])+$ index.php?controller=Item&action=create&idPue=$1
+RewriteRule ^item/showForm/([0-9][0-9])*([0-9])*$ index.php?controller=Item&action=showForm&idIte=$1$2
+RewriteRule ^item/showForm/([0-9])/([0-9])([0-9][0-9])*$ index.php?controller=Item&action=showForm&idPue=$1&idIte=$1$2
+RewriteRule ^item/update/([0-9])+/([0-9][0-9][0-9])*([0-9][0-9])*([0-9])*$ index.php?controller=Item&action=update&idPue=$1&idIte=$2$3$4
+RewriteRule ^item/remove/([0-9])+/([0-9][0-9][0-9])*([0-9][0-9])*([0-9])*$ index.php?controller=Item&action=remove&idPue=$1&idIte=$2$3$4

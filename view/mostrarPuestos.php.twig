@@ -1,0 +1,18 @@
+{% extends "main.php.twig" %}
+
+
+
+
+{% block container %}
+    <table class="table table-Info">
+   
+    {% for puesto in puestos %}
+        <tr> 
+    <td> <a href="../item/selectId/{{puesto.idPue}}" > {{ puesto.nombre }} </a> </td>
+  
+        </tr>
+    {% endfor %}
+    </table>
+
+    {% endblock %}
+
